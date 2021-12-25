@@ -21,7 +21,7 @@ var art =
 .. .. ..................O000O........................ ...... ...
 
 ";
-Console.SetWindowSize(140, 35);
+Console.SetWindowSize(140, 40);
 Console.WriteLine(art);
 
 var abstractDayTyps = typeof(AbstractDay);

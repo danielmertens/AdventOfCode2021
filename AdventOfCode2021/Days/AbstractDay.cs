@@ -1,7 +1,8 @@
 ﻿using System.Diagnostics;
+using TextCopy;
 
 namespace AdventOfCode2021.Days;
-internal abstract class AbstractDay
+internal abstract partial class AbstractDay
 {
     public void SolveProblem()
     {
@@ -32,6 +33,20 @@ internal abstract class AbstractDay
         var footerText = string.Format("Execution time {0}", stopWatch.Elapsed);
         Console.WriteLine(new string('-', footerText.Length));
         Console.WriteLine(footerText);
+    }
+
+    protected void Result<T>(T result)
+    {
+        var resultText = result.ToString();
+        Console.WriteLine("Result: " + resultText);
+        Clipboard clipboard = new();
+        clipboard.SetText(resultText);
+    }
+
+    protected void Result<T>(T result, int part)
+    {
+        var resultText = result.ToString();
+        Console.WriteLine($"PART {part}: {resultText}");
     }
 
     protected abstract void Execute();
